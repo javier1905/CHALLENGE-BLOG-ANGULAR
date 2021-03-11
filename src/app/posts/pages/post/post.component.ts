@@ -5,6 +5,7 @@ import { PostService } from '../../services/post.service';
 import { Location } from '@angular/common';
 import { CommentService } from '../../services/comment.service';
 import { Subscription } from 'rxjs';
+import { Comment } from '../../models/comment.model';
 
 @Component({
   selector: 'app-post',
@@ -13,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class PostComponent implements OnInit {
   myPost: Post;
-  listComment!: Comment[];
+  listComment: Comment[] = [];
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -39,8 +40,6 @@ export class PostComponent implements OnInit {
         },
       });
   }
-
-  showComments(): void {}
 
   backClicked(): void {
     this.router.navigate(['posts/list']);

@@ -10,6 +10,7 @@ import { Comment } from '../../models/comment.model';
 })
 export class ListCommentComponent implements OnInit, OnDestroy {
   @Input('listComment') listComment!: Comment[];
+
   show: boolean = false;
 
   suscriptionShow: Subscription | undefined;
@@ -18,19 +19,10 @@ export class ListCommentComponent implements OnInit, OnDestroy {
 
   toggle(): void {
     this.show = !this.show;
-    // this.commentService.show(!this.show);
   }
 
   ngOnInit(): void {
     console.log(this.listComment);
-
-    // this.suscriptionShow = this.commentService.show$.subscribe({
-    //   next: (show: boolean) => {
-    //     this.show = show;
-    //   },
-    // });
   }
-  ngOnDestroy(): void {
-    // if (this.suscriptionShow) this.suscriptionShow.unsubscribe();
-  }
+  ngOnDestroy(): void {}
 }

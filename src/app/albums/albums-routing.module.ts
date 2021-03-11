@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlbumsComponent } from './pages/albums/albums.component';
+import { AlbumDashboardComponent } from './pages/album-dashboard/album-dashboard.component';
+import { AlbumsDashBoardComponent } from './pages/albums-dashboard/albums-dashboard.component';
+import { GalleryDashboardComponent } from './pages/gallery-dashboard/gallery-dashboard.component';
 
 const routes: Routes = [
   {
@@ -8,7 +10,15 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        component: AlbumsComponent,
+        component: AlbumsDashBoardComponent,
+      },
+      {
+        path: ':id',
+        component: AlbumDashboardComponent,
+      },
+      {
+        path: ':id/gallery',
+        component: GalleryDashboardComponent,
       },
       {
         path: '**',

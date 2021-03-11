@@ -1,0 +1,10 @@
+<div *ngFor="let photo of listPhoto">
+  <h2>{{ photo.title }}</h2>
+  <!-- <img [alt]="photo.title" srcset="{{photo.url}}" /> -->
+  <p>albun id {{ photo.albumId }}</p>
+  <img
+    [defaultImage]="listPhoto[0].thumbnailUrl"
+    [alt]="photo.id"
+    [lazyLoad]="photo.thumbnailUrl"
+  />
+</div>

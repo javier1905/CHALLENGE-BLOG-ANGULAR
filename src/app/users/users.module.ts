@@ -11,8 +11,14 @@ import { UserTemplateComponent } from './components/user-template/user-template.
 import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
-  declarations: [UserListComponent, UsersComponent, UserTemplateComponent, UserComponent],
+  declarations: [
+    UserListComponent,
+    UsersComponent,
+    UserTemplateComponent,
+    UserComponent,
+  ],
   imports: [CommonModule, UsersRoutingModule, HttpClientModule],
+  exports: [UserTemplateComponent],
   providers: [UsersService],
 })
 export class UsersModule {}

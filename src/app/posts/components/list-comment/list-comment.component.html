@@ -1,0 +1,8 @@
+<button (click)="toggle()">Ver</button>
+<div *ngIf="show">
+  HOLA
+  <div *ngFor="let comment of this.listComment">
+    <div>{{ comment | json }}</div>
+    <app-comment-template [comment]="comment"> </app-comment-template>
+  </div>
+</div>

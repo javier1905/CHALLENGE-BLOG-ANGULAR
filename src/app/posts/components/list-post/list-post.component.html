@@ -5,7 +5,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let post of listPost">
+    <tr *ngFor="let post of listPost" (click)="goToThePost(post.id)">
       <td>{{ post.title }}</td>
     </tr>
   </tbody>

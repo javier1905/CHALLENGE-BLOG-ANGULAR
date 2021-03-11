@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../../models/post';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-post',
@@ -9,7 +10,10 @@ import { Post } from '../../models/post';
 export class ListPostComponent implements OnInit {
   @Input('listPost') listPost!: Post[];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
+  goToThePost(id: Number): void {
+    this.router.navigate(['posts/view', id]);
+  }
   ngOnInit(): void {}
 }

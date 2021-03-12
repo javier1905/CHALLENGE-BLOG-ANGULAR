@@ -1,0 +1,26 @@
+<label for="">Id usuario</label>
+<input [(ngModel)]="idUserFilter" type="number" />
+<label for="sin filtro">todo</label>
+<input type="radio" name="completed" value="" [(ngModel)]="completedFilter" />
+<label for="completos">Completos</label>
+<input
+  type="radio"
+  name="completed"
+  value="completed"
+  [(ngModel)]="completedFilter"
+/>
+<label for="sin filtro">Incompletos</label>
+<input
+  type="radio"
+  name="completed"
+  value="noCompleted"
+  [(ngModel)]="completedFilter"
+/>
+<div>
+  {{ completedFilter }}
+</div>
+<div
+  *ngFor="let todo of listTodo | filterListTodo: completedFilter:idUserFilter"
+>
+  {{ todo | json }}
+</div>

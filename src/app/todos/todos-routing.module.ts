@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TodosComponent } from './pages/todos/todos.component';
+import { TodosDashboardComponent } from './pages/todos-dashboard/todos-dashboard.component';
 
 const routes: Routes = [
   {
@@ -8,7 +8,7 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        component: TodosComponent,
+        component: TodosDashboardComponent,
       },
       {
         path: '**',

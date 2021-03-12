@@ -1,4 +1,4 @@
-<div *ngFor="let photo of listPhoto">
+<div *ngFor="let photo of listPhoto | filterDeletedPhotos">
   <h2>{{ photo.title }}</h2>
   <!-- <img [alt]="photo.title" srcset="{{photo.url}}" /> -->
   <p>albun id {{ photo.albumId }}</p>
@@ -7,4 +7,11 @@
     [alt]="photo.id"
     [lazyLoad]="photo.thumbnailUrl"
   />
+  <button (click)="handleSelectPhoto(photo)">ver</button>
+  <button (click)="handleDeletePhoto(photo)">Eliminar</button>
 </div>
+<app-modal>
+  <div>
+    <img alt="selectedPhoto" srcset="{{selectedPhoto?.url}}" />
+  </div>
+</app-modal>

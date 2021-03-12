@@ -1,0 +1,8 @@
+<div (click)="close()" class="modal-container" *ngIf="show">
+  <div (click)="stopPropagation($event)" class="modal-content">
+    <ng-content></ng-content>
+  </div>
+  <div class="button__close">
+    <button (click)="close()">x</button>
+  </div>
+</div>

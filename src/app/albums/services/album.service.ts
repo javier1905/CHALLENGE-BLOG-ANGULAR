@@ -3,11 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.prod';
 import { Album } from '../models/album.model';
 import { Photo } from '../models/photo.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlbumService {
+  private mySuject = new Subject<Photo[]>();
+  getListPhotos$ = this.mySuject.asObservable();
+
   constructor(private http: HttpClient) {}
 
   getList() {
@@ -16,7 +20,18 @@ export class AlbumService {
   getAlbumById(id: String | number) {
     return this.http.get<Album>(`${environment.url_api}/albums/${id}`);
   }
-  getPhotosByAlbumId(id: String | number) {
-    return this.http.get<Photo[]>(`${environment.url_api}/albums/${id}/photos`);
+  getPhotosByAlbumId(albumId: String | number) {
+    this.http
+      .get<Photo[]>(`${environment.url_api}/albums/${albumId}/photos`)
+      .subscribe({
+        next: (photos: Photo[]) => {
+          this.mySuject.next(photos);
+        },
+      });
+  }
+  deletePhoto(deletedPhoto: Photo) {
+    return this.http.delete<Photo>(
+      `${environment.url_api}/photos/${deletedPhoto.id}`
+    );
   }
 }

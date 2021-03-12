@@ -14,6 +14,9 @@ import {
   LAZYLOAD_IMAGE_HOOKS,
   ScrollHooks,
 } from 'ng-lazyload-image';
+import { ModalComponent } from './components/modal/modal.component';
+import { ModalService } from './services/modal.service';
+import { FilterDeletedPhotosPipe } from './pipes/filter-deleted-photos.pipe';
 
 @NgModule({
   declarations: [
@@ -23,11 +26,14 @@ import {
     AlbumDashboardComponent,
     GalleryDashboardComponent,
     ListPhotoComponent,
+    ModalComponent,
+    FilterDeletedPhotosPipe,
   ],
   imports: [CommonModule, AlbumsRoutingModule, LazyLoadImageModule],
   providers: [
     AlbumService,
     UsersService,
+    ModalService,
     { provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks },
   ],
 })

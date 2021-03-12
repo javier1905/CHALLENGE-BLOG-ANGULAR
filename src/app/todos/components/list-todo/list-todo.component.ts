@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from '../../models/todo.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-todo',
@@ -12,7 +13,11 @@ export class ListTodoComponent implements OnInit {
   idUserFilter: Number = 0;
   completedFilter: String = '';
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  handleGoToTodo(idTodo: number): void {
+    this.router.navigate(['todos', idTodo]);
+  }
 
   ngOnInit(): void {}
 }

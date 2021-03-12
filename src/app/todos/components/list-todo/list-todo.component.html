@@ -21,6 +21,7 @@
 </div>
 <div
   *ngFor="let todo of listTodo | filterListTodo: completedFilter:idUserFilter"
+  (click)="handleGoToTodo(todo.id)"
 >
   {{ todo | json }}
 </div>

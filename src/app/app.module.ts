@@ -8,6 +8,8 @@ import { HeaderModule } from './header/header.module';
 import { PostsModule } from './posts/posts.module';
 import { TodosModule } from './todos/todos.module';
 import { UsersModule } from './users/users.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,8 @@ import { UsersModule } from './users/users.module';
     AlbumsModule,
     TodosModule,
     HeaderModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

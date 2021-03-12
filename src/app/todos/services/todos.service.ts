@@ -12,12 +12,23 @@ export class TodosService {
   private mySubject = new Subject<Todo[]>();
   getListTodo$ = this.mySubject.asObservable();
 
+  private mySubjectTodo = new Subject<Todo>();
+  getTodo$ = this.mySubjectTodo.asObservable();
+
   constructor(private http: HttpClient) {}
 
   refreshListTodos(): void {
     this.http.get<Todo[]>(`${environment.url_api}/todos`).subscribe({
       next: (listTodo: Todo[]) => {
         this.mySubject.next(listTodo);
+      },
+    });
+  }
+
+  refreshTodoById(idTodo: Number | String): void {
+    this.http.get<Todo>(`${environment.url_api}/todos/${idTodo}`).subscribe({
+      next: (todo: Todo) => {
+        this.mySubjectTodo.next(todo);
       },
     });
   }

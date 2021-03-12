@@ -1,1 +1,17 @@
-<p>todo-dashboard works!</p>
+<div class="dashboard-todo-container">
+  <div class="todo_template__container-template">
+    <app-todo-template [todo]="myTodo"></app-todo-template>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="todo-template__container-button">
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+      matTooltip="Atras"
+      (click)="handleGoBack()"
+    >
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+</div>

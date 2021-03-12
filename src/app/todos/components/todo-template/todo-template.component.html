@@ -1,1 +1,16 @@
-<p>todo-template works!</p>
+<div>
+  <!-- {{ todo | json }} -->
+
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>{{ todo?.title }}</mat-grid-tile>
+    <mat-grid-tile>
+      <mat-checkbox
+        (change)="handleChange($event)"
+        class="example-margin"
+        [checked]="todo ? todo.completed : false"
+      >
+        Completo
+      </mat-checkbox></mat-grid-tile
+    >
+  </mat-grid-list>
+</div>

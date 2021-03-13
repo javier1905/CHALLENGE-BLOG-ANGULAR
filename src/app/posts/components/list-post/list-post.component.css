@@ -1,0 +1,21 @@
+.list-post__container {
+  width: 100vw;
+  max-width: 812px;
+}
+
+.list-post__filter-element {
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px;
+  flex-wrap: wrap;
+}
+.list-post__list-element {
+  padding: 15px 10px;
+}
+.list-post__list-element * {
+  width: 100%;
+  text-align: center;
+}
+.example-form-field {
+  margin: 0px 10px;
+}

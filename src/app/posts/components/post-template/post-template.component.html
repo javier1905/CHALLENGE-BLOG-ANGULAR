@@ -1,7 +1,18 @@
-<div>
-  <h2>{{ post.title }}</h2>
-  <div>
-    <p>ID del usuario {{ post.userId }}</p>
-    <p>{{ post.body }}</p>
+<mat-card-header>
+  <div mat-card-avatar class="example-header-image">
+    <button
+      (click)="goToUserDetail()"
+      mat-mini-fab
+      matTooltip="Ver info de usuario"
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+    >
+      <mat-icon>person_pin</mat-icon>
+    </button>
   </div>
-</div>
+  <mat-card-title> {{ post.title }} </mat-card-title>
+  <mat-card-subtitle>Id usuario{{ post.id }}</mat-card-subtitle>
+</mat-card-header>
+<mat-card-content>
+  <p>{{ post.body }}</p>
+</mat-card-content>

@@ -1,8 +1,19 @@
-<button (click)="toggle()">Ver</button>
-<div *ngIf="show">
-  <app-comment-template
-    *ngFor="let comment of this.listComment"
-    [comment]="comment"
-  >
-  </app-comment-template>
+<div class="list-comment__container">
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Mensajes </mat-panel-title>
+        <mat-panel-description>
+          Comentarios
+          <mat-icon>comment</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <app-comment-template
+        *ngFor="let comment of this.listComment"
+        [comment]="comment"
+      >
+      </app-comment-template>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

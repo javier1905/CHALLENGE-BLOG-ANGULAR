@@ -1,0 +1,32 @@
+.list-todo__title {
+  text-align: center;
+  margin: 25px auto;
+}
+.list-todo__container {
+  position: relative;
+  max-width: 820px;
+  width: 100%;
+}
+.list-todo__filter-content {
+  padding: 15px 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.example-form-field {
+  margin: 0px 10px;
+}
+.mat-selection-list_1 {
+  width: 100vw;
+  max-width: 812px;
+  text-align: center;
+}
+.radios_elemnet {
+  margin: 10px;
+}
+@media screen and (max-width: 811px) {
+  .mat-selection-list_1 {
+    max-width: 812px;
+  }
+}

@@ -1,1 +1,17 @@
-<button mat-raised-button (click)="openBottomSheet()">Open file</button>
+<p class="navbar-menu-mobile__container">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="example-icon">
+      <span>Challenge blog angular</span>
+      <span class="example-spacer"></span>
+
+      <button
+        (click)="openBottomSheet()"
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>

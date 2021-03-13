@@ -1,3 +1,12 @@
-<div *ngFor="let album of listAlbum" (click)="handleGoingToAlbum(album.id)">
-  {{ album.title }}
+<div class="list-album__container">
+  <h1 class="list-album__title">Lista de albunes</h1>
+  <mat-selection-list #shoes [multiple]="false">
+    <mat-list-option
+      *ngFor="let album of listAlbum"
+      [value]="album"
+      (click)="handleGoingToAlbum(album.id)"
+    >
+      {{ album.title }}
+    </mat-list-option>
+  </mat-selection-list>
 </div>

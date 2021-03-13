@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../../models/post';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-template',
@@ -9,7 +10,10 @@ import { Post } from '../../models/post';
 export class PostTemplateComponent implements OnInit {
   @Input('post') post!: Post;
 
-  constructor() {}
+  constructor(private router: Router) {}
+  goToUserDetail(): void {
+    this.router.navigate(['users/view', this.post.userId]);
+  }
 
   ngOnInit(): void {}
 }

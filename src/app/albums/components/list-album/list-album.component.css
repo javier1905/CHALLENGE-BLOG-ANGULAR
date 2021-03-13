@@ -1,0 +1,7 @@
+.list-album__container {
+  max-width: 812px;
+}
+.list-album__title {
+  text-align: center;
+  padding: 15px 10px;
+}

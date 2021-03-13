@@ -1,0 +1,4 @@
+.todos-dashboard__container {
+  display: flex;
+  justify-content: center;
+}

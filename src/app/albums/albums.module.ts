@@ -17,6 +17,11 @@ import {
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalService } from './services/modal.service';
 import { FilterDeletedPhotosPipe } from './pipes/filter-deleted-photos.pipe';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,16 @@ import { FilterDeletedPhotosPipe } from './pipes/filter-deleted-photos.pipe';
     ModalComponent,
     FilterDeletedPhotosPipe,
   ],
-  imports: [CommonModule, AlbumsRoutingModule, LazyLoadImageModule],
+  imports: [
+    CommonModule,
+    AlbumsRoutingModule,
+    LazyLoadImageModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatCardModule,
+  ],
   providers: [
     AlbumService,
     UsersService,

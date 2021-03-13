@@ -11,15 +11,9 @@ import { Comment } from '../../models/comment.model';
 export class ListCommentComponent implements OnInit, OnDestroy {
   @Input('listComment') listComment!: Comment[];
 
-  show: boolean = false;
-
   suscriptionShow: Subscription | undefined;
 
   constructor(private commentService: CommentService) {}
-
-  toggle(): void {
-    this.show = !this.show;
-  }
 
   ngOnInit(): void {
     console.log(this.listComment);

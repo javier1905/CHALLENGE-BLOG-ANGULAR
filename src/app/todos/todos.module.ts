@@ -16,6 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatTooltipModule,
     MatDividerModule,
+    MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatRadioModule,
   ],
   providers: [TodosService],
 })

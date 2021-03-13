@@ -1,5 +1,21 @@
-<app-post-template [post]="myPost"></app-post-template>
-<app-list-comment [listComment]="listComment"></app-list-comment>
+<div class="post-dashboard__container">
+  <div class="post-dashboard__content">
+    <mat-card class="post-dashboard__card">
+      <app-post-template [post]="myPost"></app-post-template>
+      <mat-card-footer class="post-dashboard__footer">
+        <app-list-comment [listComment]="listComment"></app-list-comment>
+      </mat-card-footer>
+    </mat-card>
+  </div>
 
-<button (click)="backClicked()">ATRAS</button>
-<button (click)="goToUserDetail()">Ver USuario</button>
+  <div class="post-dashboard__button-back-content">
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+      (click)="backClicked()"
+    >
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+</div>

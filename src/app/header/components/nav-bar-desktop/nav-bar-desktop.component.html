@@ -1,0 +1,40 @@
+<p class="menu-desktop__container">
+  <mat-toolbar class="menu-desktop__navbar" color="primary">
+    <span>Challenge blog angular </span>
+    <span class="example-spacer"></span>
+    <div class="menu-desktop__linck-elements">
+      <button
+        (click)="handleGoingTo('users/list')"
+        class="menu-desktop__links"
+        mat-raised-button
+        color="primary"
+      >
+        Usuarios
+      </button>
+      <button
+        (click)="handleGoingTo('posts/list')"
+        class="menu-desktop__links"
+        mat-raised-button
+        color="primary"
+      >
+        Posteos
+      </button>
+      <button
+        (click)="handleGoingTo('albums/list')"
+        class="menu-desktop__links"
+        mat-raised-button
+        color="primary"
+      >
+        Albunes
+      </button>
+      <button
+        (click)="handleGoingTo('todos/list')"
+        class="menu-desktop__links"
+        mat-raised-button
+        color="primary"
+      >
+        Todos
+      </button>
+    </div>
+  </mat-toolbar>
+</p>

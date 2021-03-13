@@ -1,0 +1,21 @@
+/* .example-spacer {
+  flex: 1 1 auto;
+} */
+.menu-desktop__navbar {
+  display: flex;
+}
+.menu-desktop__links {
+  border: none;
+  box-shadow: none;
+  margin-left: 10px;
+}
+.menu-desktop__linck-elements {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 811px) {
+  .menu-desktop__container {
+    display: none;
+  }
+}

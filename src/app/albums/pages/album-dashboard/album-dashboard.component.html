@@ -1,3 +1,17 @@
-<app-album-template [album]="album"></app-album-template>
-<button (click)="handleGoingToGallery()">GALERIA DE FOTOS</button>
-<button (click)="handleGoingToUser()">VER USUARIO</button>
+<div class="album-dasboard__container">
+  <app-album-template [album]="album"></app-album-template>
+  <button (click)="handleGoingToGallery()">GALERIA DE FOTOS</button>
+  <mat-divider></mat-divider>
+
+  <button (click)="handleGoingToUser()">VER USUARIO</button>
+  <div class="album-dasboard__button-element">
+    <button
+      (click)="handleGoBack()"
+      mat-fab
+      color="primary"
+      aria-label="Example icon button with a delete icon"
+    >
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+</div>

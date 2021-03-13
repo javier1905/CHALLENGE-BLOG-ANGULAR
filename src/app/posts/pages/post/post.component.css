@@ -1,0 +1,19 @@
+.post-dashboard__container {
+}
+.post-dashboard__button-back-content {
+  padding: 15px;
+  text-align: right;
+}
+.post-dashboard__content-button-detail {
+  padding: 10px;
+  text-align: center;
+}
+.post-dashboard__card {
+  box-shadow: none;
+  margin: 0px auto;
+  width: 100vw;
+  max-width: 812px;
+}
+.post-dashboard__footer {
+  padding-bottom: 15px;
+}

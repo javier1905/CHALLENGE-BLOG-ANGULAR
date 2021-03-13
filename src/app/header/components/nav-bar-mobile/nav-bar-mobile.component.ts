@@ -11,8 +11,9 @@ export class NavBarMobileComponent implements OnInit {
     private _bottomSheetRef: MatBottomSheetRef<NavBarMobileComponent>
   ) {}
 
-  openLink(event: MouseEvent): void {
+  openLink(event: Event): void {
     this._bottomSheetRef.dismiss();
+
     event.preventDefault();
   }
 

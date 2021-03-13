@@ -1,0 +1,12 @@
+.example-spacer {
+  flex: 1 1 auto;
+  background: transparent !important;
+  color: #ffe !important;
+  border: none !important;
+}
+
+@media screen and (min-width: 812px) {
+  .navbar-menu-mobile__container {
+    display: none;
+  }
+}

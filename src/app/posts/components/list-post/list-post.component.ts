@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 export class ListPostComponent implements OnInit {
   @Input('listPost') listPost!: Post[];
 
+  filterTitle: String = '';
+  filterId: Number = 0;
+
   constructor(private router: Router) {}
 
   goToThePost(id: Number): void {

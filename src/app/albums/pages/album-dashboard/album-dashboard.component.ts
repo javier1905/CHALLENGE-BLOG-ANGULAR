@@ -23,6 +23,9 @@ export class AlbumDashboardComponent implements OnInit {
   handleGoingToUser() {
     this.router.navigate([`users/view/${this.album.userId}`]);
   }
+  handleGoBack(): void {
+    this.router.navigate(['albums/list']);
+  }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');

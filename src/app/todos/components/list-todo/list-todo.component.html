@@ -1,27 +1,48 @@
-<label for="">Id usuario</label>
-<input [(ngModel)]="idUserFilter" type="number" />
-<label for="sin filtro">todo</label>
-<input type="radio" name="completed" value="" [(ngModel)]="completedFilter" />
-<label for="completos">Completos</label>
-<input
-  type="radio"
-  name="completed"
-  value="completed"
-  [(ngModel)]="completedFilter"
-/>
-<label for="sin filtro">Incompletos</label>
-<input
-  type="radio"
-  name="completed"
-  value="noCompleted"
-  [(ngModel)]="completedFilter"
-/>
-<div>
-  {{ completedFilter }}
-</div>
-<div
-  *ngFor="let todo of listTodo | filterListTodo: completedFilter:idUserFilter"
-  (click)="handleGoToTodo(todo.id)"
->
-  {{ todo | json }}
+<h1 class="list-todo__title">Lista de TODOs</h1>
+<mat-divider></mat-divider>
+<div class="list-todo__container">
+  <div class="list-todo__filter-content">
+    <div class="example-form-field">
+      <label>Estado</label>
+      <br />
+      <mat-radio-group [(ngModel)]="completedFilter">
+        <mat-radio-button class="radios_elemnet" value=""
+          >Todos</mat-radio-button
+        >
+        <mat-radio-button class="radios_elemnet" value="completed"
+          >Completo</mat-radio-button
+        >
+        <mat-radio-button class="radios_elemnet" value="noCompleted"
+          >Incompleto</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+    <mat-form-field class="example-form-field">
+      <mat-label>Id Usuario</mat-label>
+      <input matInput type="number" [(ngModel)]="idUserFilter" />
+      <button
+        mat-button
+        *ngIf="idUserFilter"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="idUserFilter = 0"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-selection-list class="mat-selection-list_1" #shoes [multiple]="false">
+    <mat-list-option
+      class="mat-selection-list_1"
+      *ngFor="
+        let todo of listTodo | filterListTodo: completedFilter:idUserFilter
+      "
+      [value]="todo"
+      (click)="handleGoToTodo(todo.id)"
+    >
+      {{ todo.title }}
+    </mat-list-option>
+  </mat-selection-list>
 </div>

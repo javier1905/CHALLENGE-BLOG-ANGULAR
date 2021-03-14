@@ -10,6 +10,7 @@ import { TodosModule } from './todos/todos.module';
 import { UsersModule } from './users/users.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { FooterModule } from './footer/footer.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     HeaderModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    FooterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

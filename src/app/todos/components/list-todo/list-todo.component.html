@@ -1,24 +1,22 @@
-<h1 class="list-todo__title">Lista de TODOs</h1>
+<h1 class="list-todo__title">Todo list</h1>
 <mat-divider></mat-divider>
 <div class="list-todo__container">
   <div class="list-todo__filter-content">
     <div class="example-form-field">
-      <label>Estado</label>
+      <label>State</label>
       <br />
       <mat-radio-group [(ngModel)]="completedFilter">
-        <mat-radio-button class="radios_elemnet" value=""
-          >Todos</mat-radio-button
-        >
+        <mat-radio-button class="radios_elemnet" value="">All</mat-radio-button>
         <mat-radio-button class="radios_elemnet" value="completed"
-          >Completo</mat-radio-button
+          >Complete</mat-radio-button
         >
         <mat-radio-button class="radios_elemnet" value="noCompleted"
-          >Incompleto</mat-radio-button
+          >Incomplete</mat-radio-button
         >
       </mat-radio-group>
     </div>
     <mat-form-field class="example-form-field">
-      <mat-label>Id Usuario</mat-label>
+      <mat-label>Id User</mat-label>
       <input matInput type="number" [(ngModel)]="idUserFilter" />
       <button
         mat-button

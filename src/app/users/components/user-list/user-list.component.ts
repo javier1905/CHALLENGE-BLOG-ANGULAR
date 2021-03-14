@@ -19,7 +19,15 @@ export class UserListComponent implements OnInit, OnDestroy {
   handleGoToUser(idUser: string | Number) {
     this.router.navigate(['users', idUser]);
   }
-
+  handleGoToPosts(idUser: string | Number) {
+    this.router.navigate(['users', idUser, 'posts']);
+  }
+  handleGoToAlbums(idUser: string | Number) {
+    this.router.navigate(['users', idUser, 'albums']);
+  }
+  handleGoToTodos(idUser: string | Number) {
+    this.router.navigate(['users', idUser, 'todos']);
+  }
   ngOnInit(): void {
     this.usersService.refreshList();
     this.sucriptionUserList = this.usersService.getList.subscribe({

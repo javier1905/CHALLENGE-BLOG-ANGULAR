@@ -1,0 +1,13 @@
+<div class="user-todos-dashboard__container">
+  <h1 class="user-todos-dashboard__title">Todo list</h1>
+  <mat-divider></mat-divider>
+  <div class="user-todos-dashboard__content-list">
+    <app-list-todo-by-user [listTodos]="listTodos"></app-list-todo-by-user>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="user-todos-dashboard__content-button">
+    <button (click)="handleGoBack()" mat-fab color="primary">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+</div>

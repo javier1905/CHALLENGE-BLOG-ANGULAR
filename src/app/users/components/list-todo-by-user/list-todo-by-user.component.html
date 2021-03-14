@@ -1,0 +1,13 @@
+<div class="list-todos-by-user__container">
+  <mat-card class="list-todos-by-user__content" *ngFor="let todo of listTodos">
+    <mat-card-header>
+      <mat-card-title>
+        {{ todo?.title }}
+      </mat-card-title>
+      <mat-card-subtitle> Id post {{ todo?.id }} </mat-card-subtitle>
+      <div mat-card-avatar class="example-header-image">
+        <mat-icon> album </mat-icon>
+      </div>
+    </mat-card-header>
+  </mat-card>
+</div>

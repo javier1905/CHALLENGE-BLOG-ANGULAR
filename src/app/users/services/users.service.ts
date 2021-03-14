@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { Subject } from 'rxjs';
 import { environment } from '../../../environments/environment.prod';
 import { Album } from 'src/app/albums/models/album.model';
+import { Todo } from 'src/app/todos/models/todo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,11 @@ export class UsersService {
   getAlbumByIdUser(idUser: String | number) {
     return this.http.get<Album[]>(
       `${environment.url_api}/users/${idUser}/albums`
+    );
+  }
+  getTodosByIdUser(idUser: String | number) {
+    return this.http.get<Todo[]>(
+      `${environment.url_api}/users/${idUser}/todos`
     );
   }
 }

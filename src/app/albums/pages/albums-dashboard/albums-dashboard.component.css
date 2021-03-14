@@ -1,4 +1,8 @@
 .albums-dashboard__container {
-  display: flex;
-  justify-content: center;
+}
+.albums-dashboard__title {
+  text-align: center;
+  margin: 0px;
+  padding: 15px;
+  width: 100%;
 }

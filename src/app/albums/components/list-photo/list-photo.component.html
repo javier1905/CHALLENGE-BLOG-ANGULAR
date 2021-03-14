@@ -10,7 +10,7 @@
     <div class="list-photo__img-content">
       <img
         class="list-photo__img"
-        defaultImage="../../assets/avatar150x150.jpg"
+        defaultImage="https://i.pinimg.com/170x/61/6f/18/616f18f75ae63011159b272e2e56183f.jpg"
         [alt]="photo.id"
         [lazyLoad]="photo.thumbnailUrl"
       />
@@ -35,8 +35,12 @@
     </mat-card-footer>
   </mat-card>
   <app-modal>
-    <div>
-      <img alt="selectedPhoto" srcset="{{selectedPhoto?.url}}" />
+    <div class="list-photo__content-zoom-img">
+      <img
+        class="list-photo__zoom-img"
+        alt="selectedPhoto"
+        srcset="{{selectedPhoto?.url}}"
+      />
     </div>
   </app-modal>
 </mat-card>

@@ -12,7 +12,7 @@ const routes: Routes = [
         component: PostsComponent,
       },
       {
-        path: 'view/:id',
+        path: ':id',
         component: PostComponent,
       },
       {

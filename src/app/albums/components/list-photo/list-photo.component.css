@@ -43,3 +43,11 @@
 .list-photo__button-text {
   margin: 5px;
 }
+.list-photo__content-zoom-img {
+}
+.list-photo__zoom-img {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

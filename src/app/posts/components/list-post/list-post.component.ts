@@ -16,7 +16,7 @@ export class ListPostComponent implements OnInit {
   constructor(private router: Router) {}
 
   goToThePost(id: Number): void {
-    this.router.navigate(['posts/view', id]);
+    this.router.navigate(['posts', id]);
   }
   ngOnInit(): void {}
 }

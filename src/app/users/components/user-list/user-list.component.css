@@ -2,5 +2,29 @@
   width: 100vw;
   max-width: 812px;
   text-align: center;
-  margin: 0px auto;
+  margin: 20px auto;
+}
+.user-list__items {
+  padding: 10px 0px;
+}
+.user-list__items:hover {
+  cursor: default;
+}
+.user-list__content {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-list__element {
+  width: fit-content;
+  height: fit-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+}
+.user-list__button {
+  margin: 0px 5px;
+  color: #808080;
 }

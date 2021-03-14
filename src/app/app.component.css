@@ -1,0 +1,19 @@
+.proyect__container {
+  height: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "proyect__header"
+    "proyect__main"
+    "proyect__footer";
+  grid-template-rows: 64px auto 150px;
+}
+.proyect__header {
+  grid-area: proyect__header;
+}
+.proyect__main {
+  grid-area: proyect__main;
+}
+.proyect__footer {
+  grid-area: proyect__footer;
+}

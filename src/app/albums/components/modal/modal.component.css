@@ -32,17 +32,21 @@
   width: fit-content;
   height: fit-content;
 }
-#btn_cancel {
-}
+
 .button__close {
   position: absolute;
   top: 10px;
   right: 10px;
   width: 30px;
   height: 30px;
+  background: transparent;
   transition: transform 0.5s ease-out;
 }
 .button__close:hover {
   transform: scale(1.12);
   cursor: pointer;
+}
+.button__close * {
+  background: transparent;
+  color: #b03a2e;
 }

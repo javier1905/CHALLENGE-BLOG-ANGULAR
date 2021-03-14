@@ -1,0 +1,8 @@
+.list-todos-by-user__container {
+  width: 100vw;
+  max-width: 812px;
+  margin: 0px auto;
+}
+.list-todos-by-user__content {
+  margin: 10px 10px;
+}

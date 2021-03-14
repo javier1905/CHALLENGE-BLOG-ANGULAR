@@ -3,17 +3,17 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { UsersService } from '../../services/users.service';
-import { Album } from 'src/app/albums/models/album.model';
+import { Todo } from 'src/app/todos/models/todo.model';
 
 @Component({
-  selector: 'app-user-albums-dashboard',
-  templateUrl: './user-albums-dashboard.component.html',
-  styleUrls: ['./user-albums-dashboard.component.css'],
+  selector: 'app-user-todos-dashboard',
+  templateUrl: './user-todos-dashboard.component.html',
+  styleUrls: ['./user-todos-dashboard.component.css'],
 })
-export class UserAlbumsDashboardComponent implements OnInit, OnDestroy {
-  listAlbum: Album[] = [];
+export class UserTodosDashboardComponent implements OnInit, OnDestroy {
+  listTodos: Todo[] = [];
 
-  subscriptionListAlbumsByUser: Subscription | undefined;
+  subscriptionListTodosByUser: Subscription | undefined;
 
   constructor(
     private usersService: UsersService,
@@ -28,16 +28,16 @@ export class UserAlbumsDashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.paramMap.get('id');
     if (id)
-      this.subscriptionListAlbumsByUser = this.usersService
-        .getAlbumByIdUser(id)
+      this.subscriptionListTodosByUser = this.usersService
+        .getTodosByIdUser(id)
         .subscribe({
-          next: (listAlbum: Album[]) => {
-            this.listAlbum = listAlbum;
+          next: (listTodos: Todo[]) => {
+            this.listTodos = listTodos;
           },
         });
   }
 
   ngOnDestroy(): void {
-    this.subscriptionListAlbumsByUser?.unsubscribe();
+    this.subscriptionListTodosByUser?.unsubscribe();
   }
 }

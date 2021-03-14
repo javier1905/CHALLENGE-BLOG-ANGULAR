@@ -15,6 +15,8 @@ import { UsersPostsDashboardComponent } from './pages/users-posts-dashboard/user
 import { ListPostByUserComponent } from './components/list-post-by-user/list-post-by-user.component';
 import { UserAlbumsDashboardComponent } from './pages/user-albums-dashboard/user-albums-dashboard.component';
 import { ListAlbumByUserComponent } from './components/list-album-by-user/list-album-by-user.component';
+import { UserTodosDashboardComponent } from './pages/user-todos-dashboard/user-todos-dashboard.component';
+import { ListTodoByUserComponent } from './components/list-todo-by-user/list-todo-by-user.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ListAlbumByUserComponent } from './components/list-album-by-user/list-a
     ListPostByUserComponent,
     UserAlbumsDashboardComponent,
     ListAlbumByUserComponent,
+    UserTodosDashboardComponent,
+    ListTodoByUserComponent,
   ],
   imports: [CommonModule, UsersRoutingModule, HttpClientModule, MaterialModule],
   exports: [UserTemplateComponent],

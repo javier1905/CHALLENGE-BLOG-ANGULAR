@@ -1,0 +1,11 @@
+.album-template__footer {
+  padding: 10px 10px 20px 10px;
+}
+.album-template__button {
+  margin: 5px;
+  padding: 5px 25px;
+}
+.album-template__icon * {
+  width: 100px !important;
+  height: 100px !important;
+}

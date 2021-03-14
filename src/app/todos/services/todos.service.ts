@@ -32,4 +32,7 @@ export class TodosService {
       },
     });
   }
+  updateTodo(idTodo: Number | String) {
+    return this.http.put<Todo>(`${environment.url_api}/todos/${idTodo}`, {});
+  }
 }

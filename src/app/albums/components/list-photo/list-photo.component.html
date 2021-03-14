@@ -1,17 +1,42 @@
-<div *ngFor="let photo of listPhoto | filterDeletedPhotos">
-  <h2>{{ photo.title }}</h2>
-  <!-- <img [alt]="photo.title" srcset="{{photo.url}}" /> -->
-  <p>albun id {{ photo.albumId }}</p>
-  <img
-    [defaultImage]="listPhoto[0].thumbnailUrl"
-    [alt]="photo.id"
-    [lazyLoad]="photo.thumbnailUrl"
-  />
-  <button (click)="handleSelectPhoto(photo)">ver</button>
-  <button (click)="handleDeletePhoto(photo)">Eliminar</button>
-</div>
-<app-modal>
-  <div>
-    <img alt="selectedPhoto" srcset="{{selectedPhoto?.url}}" />
-  </div>
-</app-modal>
+<mat-card class="list-photo__container">
+  <mat-card
+    class="list-photo__card"
+    *ngFor="let photo of listPhoto | filterDeletedPhotos"
+  >
+    <mat-card-title>
+      {{ photo.title }}
+    </mat-card-title>
+    <mat-card-subtitle>albun id {{ photo.albumId }}</mat-card-subtitle>
+    <div class="list-photo__img-content">
+      <img
+        class="list-photo__img"
+        defaultImage="../../assets/avatar150x150.jpg"
+        [alt]="photo.id"
+        [lazyLoad]="photo.thumbnailUrl"
+      />
+    </div>
+    <mat-card-footer class="list-photo__footer">
+      <button
+        class="list-photo__button"
+        mat-stroked-button
+        (click)="handleSelectPhoto(photo)"
+      >
+        <mat-icon>visibility</mat-icon>
+        <span class="list-photo__button-text">Ver</span>
+      </button>
+      <button
+        class="list-photo__button"
+        mat-stroked-button
+        (click)="handleDeletePhoto(photo)"
+      >
+        <mat-icon>delete</mat-icon>
+        <span class="list-photo__button-text">Eliminar</span>
+      </button>
+    </mat-card-footer>
+  </mat-card>
+  <app-modal>
+    <div>
+      <img alt="selectedPhoto" srcset="{{selectedPhoto?.url}}" />
+    </div>
+  </app-modal>
+</mat-card>

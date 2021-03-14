@@ -1,0 +1,13 @@
+<div class="user-posts-dashboard__container">
+  <h1 class="user-posts-dashboard__title">Lista de post</h1>
+  <mat-divider></mat-divider>
+  <div class="user-posts-dashboard__content-list">
+    <app-list-post-by-user [listPost]="listPost"></app-list-post-by-user>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="user-posts-dashboard__content-button">
+    <button (click)="handleGoBack()" mat-fab color="primary">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+</div>

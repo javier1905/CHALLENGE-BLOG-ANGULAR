@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Todo } from '../../models/todo.model';
+import { FiterTodoPipe } from '../../pipes/fiter-todo.pipe';
 import { TodosService } from '../../services/todos.service';
 
 @Component({
   selector: 'app-todo-dashboard',
   templateUrl: './todo-dashboard.component.html',
   styleUrls: ['./todo-dashboard.component.css'],
+  providers: [FiterTodoPipe],
 })
 export class TodoDashboardComponent implements OnInit {
   myTodo!: Todo;
@@ -17,7 +19,8 @@ export class TodoDashboardComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedToute: ActivatedRoute,
-    private todosService: TodosService
+    private todosService: TodosService,
+    private _filterTodoPipe: FiterTodoPipe
   ) {}
 
   handleGoBack(): void {
@@ -26,7 +29,7 @@ export class TodoDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.todosService.getTodo$.subscribe({
       next: (todo: Todo) => {
-        this.myTodo = todo;
+        this.myTodo = this._filterTodoPipe.transform(todo);
       },
     });
 

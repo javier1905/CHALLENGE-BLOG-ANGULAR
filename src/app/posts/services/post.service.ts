@@ -23,4 +23,9 @@ export class PostService {
   getPostById(id: String) {
     return this.http.get<Post>(`${environment.url_api}/posts/${id}`);
   }
+  getPostsByUserId(idUser: String | Number) {
+    return this.http.get<Post[]>(
+      `${environment.url_api}/users/${idUser}/posts`
+    );
+  }
 }

@@ -1,0 +1,13 @@
+<div class="user-albums-dashboard__container">
+  <h1 class="user-albums-dashboard__title">Lista de albunes</h1>
+  <mat-divider></mat-divider>
+  <div class="user-albums-dashboard__content-list">
+    <app-list-album-by-user [listAlbum]="listAlbum"></app-list-album-by-user>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="user-albums-dashboard__content-button">
+    <button (click)="handleGoBack()" mat-fab color="primary">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+</div>

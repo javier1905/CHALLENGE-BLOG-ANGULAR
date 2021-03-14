@@ -1,2 +1,8 @@
-<button (click)="handleGoBack()">ATRAS</button>
-<app-list-photo [listPhoto]="listPhoto"></app-list-photo>
+<div class="gallery-dashboard__container">
+  <div class="gallery-dashboard__element-button">
+    <button matTooltip="Atras" color="primary" mat-fab (click)="handleGoBack()">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+  <app-list-photo [listPhoto]="listPhoto"></app-list-photo>
+</div>

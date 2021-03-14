@@ -1,13 +1,12 @@
 <div class="album-dasboard__container">
   <app-album-template [album]="album"></app-album-template>
-  <button (click)="handleGoingToGallery()">GALERIA DE FOTOS</button>
-  <mat-divider></mat-divider>
 
-  <button (click)="handleGoingToUser()">VER USUARIO</button>
+  <mat-divider></mat-divider>
   <div class="album-dasboard__button-element">
     <button
       (click)="handleGoBack()"
       mat-fab
+      matTooltip="Atras"
       color="primary"
       aria-label="Example icon button with a delete icon"
     >

@@ -1,16 +1,19 @@
-<div>
-  <!-- {{ todo | json }} -->
-
-  <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile>{{ todo?.title }}</mat-grid-tile>
-    <mat-grid-tile>
+<mat-card class="todo-template__container">
+  <mat-card-header>
+    <mat-card-title> Id de usuario: {{ todo?.userId }} </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="todo-template__content">
+    <div>
+      {{ todo?.title }}
+    </div>
+    <div>
       <mat-checkbox
         (change)="handleChange($event)"
         class="example-margin"
         [checked]="todo ? todo.completed : false"
       >
         Completo
-      </mat-checkbox></mat-grid-tile
-    >
-  </mat-grid-list>
-</div>
+      </mat-checkbox>
+    </div>
+  </mat-card-content>
+</mat-card>

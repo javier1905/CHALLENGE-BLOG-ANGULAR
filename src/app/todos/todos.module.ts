@@ -9,17 +9,9 @@ import { ListTodoComponent } from './components/list-todo/list-todo.component';
 import { FormsModule } from '@angular/forms';
 import { TodoDashboardComponent } from './pages/todo-dashboard/todo-dashboard.component';
 import { TodoTemplateComponent } from './components/todo-template/todo-template.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatRadioModule } from '@angular/material/radio';
+import { MaterialModule } from '../material/material.module';
+import { FiterTodoPipe } from './pipes/fiter-todo.pipe';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -28,23 +20,15 @@ import { MatRadioModule } from '@angular/material/radio';
     ListTodoComponent,
     TodoDashboardComponent,
     TodoTemplateComponent,
+    FiterTodoPipe,
+    SnackBarComponent,
   ],
   imports: [
     CommonModule,
     TodosRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatGridListModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatDividerModule,
-    MatListModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatRadioModule,
+    MaterialModule,
   ],
   providers: [TodosService],
 })

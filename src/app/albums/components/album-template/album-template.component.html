@@ -1,3 +1,30 @@
-<div>
-  {{ album | json }}
-</div>
+<mat-card class="album-template__container">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <mat-icon class="album-template__icon">album</mat-icon>
+    </div>
+    <mat-card-title>
+      {{ album?.title }}
+    </mat-card-title>
+    <mat-card-subtitle> Id: {{ album?.userId }} </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Id de Usuario: {{ album?.userId }}</p>
+  </mat-card-content>
+  <mat-card-footer class="album-template__footer">
+    <button
+      class="album-template__button"
+      mat-raised-button
+      (click)="handleGoingToGallery()"
+    >
+      GALERIA DE FOTOS
+    </button>
+    <button
+      class="album-template__button"
+      mat-raised-button
+      (click)="handleGoingToUser()"
+    >
+      VER USUARIO
+    </button>
+  </mat-card-footer>
+</mat-card>

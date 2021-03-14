@@ -1,0 +1,8 @@
+.user-dashboard__content-user-template {
+  display: flex;
+  justify-content: flex-start;
+}
+.user-dashboard__content-button {
+  padding: 15px;
+  text-align: right;
+}

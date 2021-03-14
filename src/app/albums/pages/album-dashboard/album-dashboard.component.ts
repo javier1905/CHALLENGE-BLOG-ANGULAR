@@ -17,12 +17,6 @@ export class AlbumDashboardComponent implements OnInit {
     private albumService: AlbumService
   ) {}
 
-  handleGoingToGallery() {
-    this.router.navigate([`albums/${this.album.id}/gallery`]);
-  }
-  handleGoingToUser() {
-    this.router.navigate([`users/view/${this.album.userId}`]);
-  }
   handleGoBack(): void {
     this.router.navigate(['albums/list']);
   }

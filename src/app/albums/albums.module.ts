@@ -17,11 +17,9 @@ import {
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalService } from './services/modal.service';
 import { FilterDeletedPhotosPipe } from './pipes/filter-deleted-photos.pipe';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatCardModule } from '@angular/material/card';
+import { MaterialModule } from '../material/material.module';
+import { DialogAceptCancelComponent } from './components/dialog-acept-cancel/dialog-acept-cancel.component';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -33,16 +31,14 @@ import { MatCardModule } from '@angular/material/card';
     ListPhotoComponent,
     ModalComponent,
     FilterDeletedPhotosPipe,
+    DialogAceptCancelComponent,
+    SnackBarComponent,
   ],
   imports: [
     CommonModule,
     AlbumsRoutingModule,
     LazyLoadImageModule,
-    MatListModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatCardModule,
+    MaterialModule,
   ],
   providers: [
     AlbumService,

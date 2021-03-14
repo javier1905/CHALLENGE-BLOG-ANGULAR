@@ -12,7 +12,7 @@ export class PostTemplateComponent implements OnInit {
 
   constructor(private router: Router) {}
   goToUserDetail(): void {
-    this.router.navigate(['users/view', this.post.userId]);
+    this.router.navigate(['users', this.post.userId]);
   }
 
   ngOnInit(): void {}

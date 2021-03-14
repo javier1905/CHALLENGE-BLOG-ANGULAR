@@ -1,2 +1,11 @@
-<app-user-template [user]="myUser"></app-user-template>
-<button (click)="goBack()">ATRAS</button>
+<div class="user-dashboard__container">
+  <div class="user-dashboard__content-user-template">
+    <app-user-template [user]="myUser"></app-user-template>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="user-dashboard__content-button">
+    <button mat-fab color="primary" matTooltip="Atras" (click)="goBack()">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+  </div>
+</div>

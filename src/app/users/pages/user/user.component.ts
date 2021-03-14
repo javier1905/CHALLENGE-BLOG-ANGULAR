@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user';
 import { UsersService } from '../../services/users.service';
 import { Location } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   myUser: User;
 
+  subscriptionUser: Subscription | undefined;
+
   constructor(
-    private router: Router,
     private activatesRouter: ActivatedRoute,
     private usersService: UsersService,
     private _location: Location
@@ -28,10 +30,14 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     const id = this.activatesRouter.snapshot.paramMap.get('id');
     if (id !== null)
-      this.usersService.getUserById(id).subscribe({
+      this.subscriptionUser = this.usersService.getUserById(id).subscribe({
         next: (user: User) => {
           this.myUser = user;
         },
       });
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptionUser?.unsubscribe();
   }
 }

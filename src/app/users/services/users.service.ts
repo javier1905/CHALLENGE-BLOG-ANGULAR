@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { environment } from '../../../environments/environment.prod';
 import { Album } from 'src/app/albums/models/album.model';
 import { Todo } from 'src/app/todos/models/todo.model';
@@ -17,11 +17,17 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   refreshList(): void {
-    this.http.get<User[]>(`${environment.url_api}/users`).subscribe({
-      next: (data: User[]) => {
-        this.userListSujet.next((this.userList = data));
-      },
-    });
+    let subscriptionUser: Subscription | undefined;
+    subscriptionUser = this.http
+      .get<User[]>(`${environment.url_api}/users`)
+      .subscribe({
+        next: (data: User[]) => {
+          this.userListSujet.next((this.userList = data));
+        },
+        complete: () => {
+          subscriptionUser?.unsubscribe();
+        },
+      });
   }
   getUserById(id: String) {
     return this.http.get<User>(`${environment.url_api}/users/${id}`);

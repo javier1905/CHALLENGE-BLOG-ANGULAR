@@ -10,7 +10,6 @@ import { UsersComponent } from './pages/users/users.component';
 const routes: Routes = [
   {
     path: 'users',
-    // component: UsersComponent,
     children: [
       { path: 'list', component: UsersComponent },
       { path: ':id', component: UserComponent },

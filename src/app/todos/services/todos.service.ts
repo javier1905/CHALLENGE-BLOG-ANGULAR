@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
 import { environment } from '../../../environments/environment.prod';
 import { Todo } from '../models/todo.model';
@@ -18,19 +18,31 @@ export class TodosService {
   constructor(private http: HttpClient) {}
 
   refreshListTodos(): void {
-    this.http.get<Todo[]>(`${environment.url_api}/todos`).subscribe({
-      next: (listTodo: Todo[]) => {
-        this.mySubject.next(listTodo);
-      },
-    });
+    let subscritionlistTodo: Subscription | undefined;
+    subscritionlistTodo = this.http
+      .get<Todo[]>(`${environment.url_api}/todos`)
+      .subscribe({
+        next: (listTodo: Todo[]) => {
+          this.mySubject.next(listTodo);
+        },
+        complete: () => {
+          subscritionlistTodo?.unsubscribe();
+        },
+      });
   }
 
   refreshTodoById(idTodo: Number | String): void {
-    this.http.get<Todo>(`${environment.url_api}/todos/${idTodo}`).subscribe({
-      next: (todo: Todo) => {
-        this.mySubjectTodo.next(todo);
-      },
-    });
+    let subscritionlistTodos: Subscription | undefined;
+    subscritionlistTodos = this.http
+      .get<Todo>(`${environment.url_api}/todos/${idTodo}`)
+      .subscribe({
+        next: (todo: Todo) => {
+          this.mySubjectTodo.next(todo);
+        },
+        complete: () => {
+          subscritionlistTodos?.unsubscribe();
+        },
+      });
   }
   updateTodo(idTodo: Number | String) {
     return this.http.put<Todo>(`${environment.url_api}/todos/${idTodo}`, {});

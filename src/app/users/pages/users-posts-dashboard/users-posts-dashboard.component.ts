@@ -33,9 +33,6 @@ export class UsersPostsDashboardComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (listPost: Post[]) => {
             this.listPost = listPost;
-            console.log('====================================');
-            console.log(listPost);
-            console.log('====================================');
           },
         });
   }

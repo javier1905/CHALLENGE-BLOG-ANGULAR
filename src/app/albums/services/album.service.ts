@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.prod';
 import { Album } from '../models/album.model';
 import { Photo } from '../models/photo.model';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,11 +21,13 @@ export class AlbumService {
     return this.http.get<Album>(`${environment.url_api}/albums/${id}`);
   }
   getPhotosByAlbumId(albumId: String | number) {
-    this.http
+    let subscriptionAlbum: Subscription | undefined;
+    subscriptionAlbum = this.http
       .get<Photo[]>(`${environment.url_api}/albums/${albumId}/photos`)
       .subscribe({
         next: (photos: Photo[]) => {
           this.mySuject.next(photos);
+          subscriptionAlbum?.unsubscribe();
         },
       });
   }

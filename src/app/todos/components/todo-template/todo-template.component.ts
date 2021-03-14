@@ -6,6 +6,7 @@ import { FiterTodoPipe } from '../../pipes/fiter-todo.pipe';
 import { TodosService } from '../../services/todos.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-todo-template',
@@ -26,48 +27,57 @@ export class TodoTemplateComponent implements OnInit {
   }
 
   handleChange(e: MatCheckboxChange): void {
-    this.todosService.updateTodo(this.todo.id).subscribe({
-      next: (updatedTodo: Todo) => {
-        var checked: boolean = false;
+    let subscriptionUpdateTodo: Subscription | undefined;
 
-        let listUpdated = localStorage.getItem('updatedTodo');
-        const UpTodo: Todo = {
-          userId: 0,
-          title: '',
-          id: updatedTodo.id,
-          completed: e.checked,
-        };
+    subscriptionUpdateTodo = this.todosService
+      .updateTodo(this.todo.id)
+      .subscribe({
+        next: (updatedTodo: Todo) => {
+          var checked: boolean = false;
 
-        if (listUpdated === null) {
-          let array: Todo[] = [];
-          array.push(UpTodo);
-          localStorage.setItem('updatedTodo', JSON.stringify(array));
-        } else {
-          let listUpdatedArray: Todo[] = JSON.parse(listUpdated);
+          let listUpdated = localStorage.getItem('updatedTodo');
+          const UpTodo: Todo = {
+            userId: 0,
+            title: '',
+            id: updatedTodo.id,
+            completed: e.checked,
+          };
 
-          let arrayUpdatedTodo = listUpdatedArray.map((_updatedTodo: Todo) => {
-            if (_updatedTodo.id === updatedTodo.id) {
-              checked = true;
-              _updatedTodo.completed = e.checked;
-              return _updatedTodo;
-            } else return _updatedTodo;
-          });
-          if (checked) {
-            localStorage.setItem(
-              'updatedTodo',
-              JSON.stringify(arrayUpdatedTodo)
-            );
+          if (listUpdated === null) {
+            let array: Todo[] = [];
+            array.push(UpTodo);
+            localStorage.setItem('updatedTodo', JSON.stringify(array));
           } else {
-            listUpdatedArray.push(UpTodo);
-            localStorage.setItem(
-              'updatedTodo',
-              JSON.stringify(listUpdatedArray)
+            let listUpdatedArray: Todo[] = JSON.parse(listUpdated);
+
+            let arrayUpdatedTodo = listUpdatedArray.map(
+              (_updatedTodo: Todo) => {
+                if (_updatedTodo.id === updatedTodo.id) {
+                  checked = true;
+                  _updatedTodo.completed = e.checked;
+                  return _updatedTodo;
+                } else return _updatedTodo;
+              }
             );
+            if (checked) {
+              localStorage.setItem(
+                'updatedTodo',
+                JSON.stringify(arrayUpdatedTodo)
+              );
+            } else {
+              listUpdatedArray.push(UpTodo);
+              localStorage.setItem(
+                'updatedTodo',
+                JSON.stringify(listUpdatedArray)
+              );
+            }
           }
-        }
-        this.openSnackBar();
-      },
-    });
+          this.openSnackBar();
+        },
+        complete: () => {
+          subscriptionUpdateTodo?.unsubscribe();
+        },
+      });
   }
 
   ngOnInit(): void {}

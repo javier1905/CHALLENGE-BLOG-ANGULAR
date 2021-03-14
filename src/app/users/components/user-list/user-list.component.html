@@ -1,16 +1,10 @@
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>NOMBRE</th>
-      <th>EMAIL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of userList">
-      <td>{{ user.id }}</td>
-      <td>{{ user.name }}</td>
-      <td>{{ user.email }}</td>
-    </tr>
-  </tbody>
-</table>
+<mat-selection-list class="user-list__container" #shoes [multiple]="false">
+  <mat-list-option
+    class="user-list__items"
+    *ngFor="let user of userList"
+    [value]="user"
+    (click)="handleGoToUser(user.id)"
+  >
+    {{ user.name }}
+  </mat-list-option>
+</mat-selection-list>

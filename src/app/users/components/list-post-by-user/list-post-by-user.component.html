@@ -1,0 +1,18 @@
+<div class="list-post-by-user__container">
+  <mat-card class="list-post-by-user__content" *ngFor="let post of listPost">
+    <mat-card-header>
+      <mat-card-title>
+        {{ post?.title }}
+      </mat-card-title>
+      <mat-card-subtitle> Id post {{ post?.id }} </mat-card-subtitle>
+      <div mat-card-avatar class="example-header-image">
+        <mat-icon> insert_comment </mat-icon>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ post?.body }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

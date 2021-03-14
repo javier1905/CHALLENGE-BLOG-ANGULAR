@@ -1,0 +1,6 @@
+.user-list__container {
+  width: 100vw;
+  max-width: 812px;
+  text-align: center;
+  margin: 0px auto;
+}

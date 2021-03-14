@@ -1,24 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../../models/user';
 import { UsersService } from '../../services/users.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
   userList: User[] = [];
 
-  constructor(private usersService: UsersService) {}
+  sucriptionUserList: Subscription | undefined;
+
+  constructor(private usersService: UsersService, private router: Router) {}
+
+  handleGoToUser(idUser: string | Number) {
+    this.router.navigate(['users', idUser]);
+  }
 
   ngOnInit(): void {
     this.usersService.refreshList();
-    this.usersService.getList.subscribe({
+    this.sucriptionUserList = this.usersService.getList.subscribe({
       next: (userList: User[]) => {
         this.userList = userList;
-        console.log(this.userList);
       },
     });
+  }
+  ngOnDestroy(): void {
+    this.sucriptionUserList?.unsubscribe();
   }
 }

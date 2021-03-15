@@ -1,11 +1,8 @@
 <div class="user-dashboard__container">
   <div class="user-dashboard__content-user-template">
-    <div *ngIf="loading; else con" class="content-loading">
-      <mat-spinner></mat-spinner>
-    </div>
-    <ng-template #con>
+    <app-loading [loading]="loading">
       <app-user-template [user]="myUser"></app-user-template>
-    </ng-template>
+    </app-loading>
   </div>
   <mat-divider></mat-divider>
   <div class="user-dashboard__content-button">

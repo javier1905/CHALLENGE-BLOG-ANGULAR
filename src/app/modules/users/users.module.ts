@@ -9,7 +9,6 @@ import { UsersComponent } from './pages/users/users.component';
 
 import { UserTemplateComponent } from './components/user-template/user-template.component';
 import { UserComponent } from './pages/user/user.component';
-import { MaterialModule } from '../../core/material/material.module';
 
 import { UsersPostsDashboardComponent } from './pages/users-posts-dashboard/users-posts-dashboard.component';
 import { ListPostByUserComponent } from './components/list-post-by-user/list-post-by-user.component';
@@ -19,6 +18,8 @@ import { UserTodosDashboardComponent } from './pages/user-todos-dashboard/user-t
 import { ListTodoByUserComponent } from './components/list-todo-by-user/list-todo-by-user.component';
 import { UsersService } from 'src/app/core/services/users.service';
 import { PostService } from 'src/app/core/services/post.service';
+import { MaterialModule } from 'src/app/core/material/material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,13 @@ import { PostService } from 'src/app/core/services/post.service';
     UserTodosDashboardComponent,
     ListTodoByUserComponent,
   ],
-  imports: [CommonModule, UsersRoutingModule, HttpClientModule, MaterialModule],
+  imports: [
+    CommonModule,
+    UsersRoutingModule,
+    HttpClientModule,
+    MaterialModule,
+    SharedModule,
+  ],
   exports: [UserTemplateComponent],
   providers: [UsersService, PostService],
 })

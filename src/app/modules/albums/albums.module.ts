@@ -17,12 +17,14 @@ import {
 import { ModalComponent } from './components/modal/modal.component';
 
 import { FilterDeletedPhotosPipe } from '../../shared/pipes/filter-deleted-photos.pipe';
-import { MaterialModule } from '../../core/material/material.module';
+
 import { DialogAceptCancelComponent } from './components/dialog-acept-cancel/dialog-acept-cancel.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { AlbumService } from 'src/app/core/services/album.service';
 import { UsersService } from 'src/app/core/services/users.service';
 import { ModalService } from 'src/app/core/services/modal.service';
+import { MaterialModule } from 'src/app/core/material/material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { ModalService } from 'src/app/core/services/modal.service';
     AlbumsRoutingModule,
     LazyLoadImageModule,
     MaterialModule,
+    SharedModule,
   ],
   providers: [
     AlbumService,

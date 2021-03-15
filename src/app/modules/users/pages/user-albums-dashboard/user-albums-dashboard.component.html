@@ -2,7 +2,9 @@
   <h1 class="user-albums-dashboard__title">Album list</h1>
   <mat-divider></mat-divider>
   <div class="user-albums-dashboard__content-list">
-    <app-list-album-by-user [listAlbum]="listAlbum"></app-list-album-by-user>
+    <app-loading [loading]="loading">
+      <app-list-album-by-user [listAlbum]="listAlbum"></app-list-album-by-user>
+    </app-loading>
   </div>
   <mat-divider></mat-divider>
   <div class="user-albums-dashboard__content-button">

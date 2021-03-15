@@ -13,6 +13,7 @@ import { UsersService } from 'src/app/core/services/users.service';
 })
 export class UserTodosDashboardComponent implements OnInit, OnDestroy {
   listTodos: Todo[] = [];
+  loading: boolean = true;
 
   subscriptionListTodosByUser: Subscription | undefined;
 
@@ -34,6 +35,7 @@ export class UserTodosDashboardComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (listTodos: Todo[]) => {
             this.listTodos = listTodos;
+            this.loading = false;
           },
         });
   }

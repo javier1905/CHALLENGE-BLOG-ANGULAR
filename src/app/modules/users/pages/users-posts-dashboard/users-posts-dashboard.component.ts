@@ -14,6 +14,7 @@ import { PostService } from 'src/app/core/services/post.service';
 })
 export class UsersPostsDashboardComponent implements OnInit, OnDestroy {
   listPost: Post[] = [];
+  loading: boolean = true;
 
   subscriptionListPostByUser: Subscription | undefined;
 
@@ -35,6 +36,7 @@ export class UsersPostsDashboardComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (listPost: Post[]) => {
             this.listPost = listPost;
+            this.loading = false;
           },
         });
   }

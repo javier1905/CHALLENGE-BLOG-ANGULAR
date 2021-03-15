@@ -13,6 +13,7 @@ import { UsersService } from 'src/app/core/services/users.service';
 })
 export class UserAlbumsDashboardComponent implements OnInit, OnDestroy {
   listAlbum: Album[] = [];
+  loading: boolean = true;
 
   subscriptionListAlbumsByUser: Subscription | undefined;
 
@@ -34,6 +35,7 @@ export class UserAlbumsDashboardComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (listAlbum: Album[]) => {
             this.listAlbum = listAlbum;
+            this.loading = false;
           },
         });
   }

@@ -1,7 +1,4 @@
-<div *ngIf="loading; else con" class="content-loading">
-  <mat-spinner></mat-spinner>
-</div>
-<ng-template #con>
+<app-loading [loading]="loading">
   <mat-selection-list class="user-list__container" #shoes [multiple]="false">
     <mat-list-option
       class="user-list__items"
@@ -52,4 +49,4 @@
       </div>
     </mat-list-option>
   </mat-selection-list>
-</ng-template>
+</app-loading>

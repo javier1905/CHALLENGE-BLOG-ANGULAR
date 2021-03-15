@@ -11,6 +11,7 @@ import { AlbumService } from 'src/app/core/services/album.service';
 })
 export class AlbumsDashBoardComponent implements OnInit, OnDestroy {
   listAlbum!: Album[];
+  loading: boolean = true;
 
   subscriptionAlbumList: Subscription | undefined;
 
@@ -20,6 +21,7 @@ export class AlbumsDashBoardComponent implements OnInit, OnDestroy {
     this.subscriptionAlbumList = this.albumService.getList().subscribe({
       next: (listAlbum: Album[]) => {
         this.listAlbum = listAlbum;
+        this.loading = false;
       },
     });
   }

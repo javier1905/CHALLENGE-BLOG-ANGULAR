@@ -1,0 +1,9 @@
+.gallery-dashboard__element-button {
+  padding: 10px 15px;
+  text-align: right;
+}
+
+.gallery-dashboard__title {
+  text-align: center;
+  padding: 15px 10px 0px 10px;
+}

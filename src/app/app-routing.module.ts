@@ -5,22 +5,22 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () =>
-      import('./users/users.module').then((m) => m.UsersModule),
+      import('./modules/users/users.module').then((m) => m.UsersModule),
   },
   {
     path: 'albums',
     loadChildren: () =>
-      import('./albums/albums.module').then((m) => m.AlbumsModule),
+      import('./modules/albums/albums.module').then((m) => m.AlbumsModule),
   },
   {
     path: 'posts',
     loadChildren: () =>
-      import('./posts/posts.module').then((m) => m.PostsModule),
+      import('./modules/posts/posts.module').then((m) => m.PostsModule),
   },
   {
     path: 'todos',
     loadChildren: () =>
-      import('./todos/todos.module').then((m) => m.TodosModule),
+      import('./modules/todos/todos.module').then((m) => m.TodosModule),
   },
 ];
 

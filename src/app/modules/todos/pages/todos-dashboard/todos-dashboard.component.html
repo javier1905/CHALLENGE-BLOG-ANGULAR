@@ -1,3 +1,5 @@
 <div class="todos-dashboard__container">
-  <app-list-todo [listTodo]="listTodo"> </app-list-todo>
+  <app-loading [loading]="loading">
+    <app-list-todo [listTodo]="listTodo"> </app-list-todo>
+  </app-loading>
 </div>

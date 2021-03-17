@@ -1,4 +1,6 @@
 <div class="post-dashboard__container">
   <h1 class="post-dashboard__title">Post list</h1>
-  <app-list-post [listPost]="listPost"></app-list-post>
+  <app-loading [loading]="loading">
+    <app-list-post [listPost]="listPost"></app-list-post>
+  </app-loading>
 </div>

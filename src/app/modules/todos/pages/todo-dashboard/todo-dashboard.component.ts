@@ -13,6 +13,7 @@ import { Todo } from '../../../../shared/models/todo.model';
 })
 export class TodoDashboardComponent implements OnInit, OnDestroy {
   myTodo!: Todo;
+  loading: boolean = true;
 
   suscriptionTodo: Subscription | undefined;
 
@@ -30,6 +31,7 @@ export class TodoDashboardComponent implements OnInit, OnDestroy {
     this.suscriptionTodo = this.todosService.getTodo$.subscribe({
       next: (todo: Todo) => {
         this.myTodo = this._filterTodoPipe.transform(todo);
+        this.loading = false;
       },
     });
 

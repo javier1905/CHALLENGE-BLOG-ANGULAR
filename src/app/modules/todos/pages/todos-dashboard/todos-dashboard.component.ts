@@ -11,6 +11,7 @@ import { TodosService } from 'src/app/core/services/todos.service';
 })
 export class TodosDashboardComponent implements OnInit, OnDestroy {
   listTodo!: Todo[];
+  loading: boolean = true;
   subscriptionListTodo: Subscription | undefined;
 
   constructor(private todoService: TodosService) {}
@@ -20,6 +21,7 @@ export class TodosDashboardComponent implements OnInit, OnDestroy {
     this.subscriptionListTodo = this.todoService.getListTodo$.subscribe({
       next: (listTodo: Todo[]) => {
         this.listTodo = listTodo;
+        this.loading = false;
       },
     });
   }

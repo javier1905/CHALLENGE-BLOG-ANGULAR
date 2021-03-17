@@ -12,6 +12,7 @@ import { AlbumService } from 'src/app/core/services/album.service';
 })
 export class AlbumDashboardComponent implements OnInit, OnDestroy {
   album!: Album;
+  loading: boolean = true;
 
   subscriptionAlbum: Subscription | undefined;
 
@@ -31,6 +32,7 @@ export class AlbumDashboardComponent implements OnInit, OnDestroy {
       this.subscriptionAlbum = this.albumService.getAlbumById(id).subscribe({
         next: (album: Album) => {
           this.album = album;
+          this.loading = false;
         },
       });
   }

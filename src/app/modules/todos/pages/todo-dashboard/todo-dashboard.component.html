@@ -1,6 +1,8 @@
 <div class="dashboard-todo-container">
   <div class="todo_template__container-template">
-    <app-todo-template [todo]="myTodo"></app-todo-template>
+    <app-loading [loading]="loading">
+      <app-todo-template [todo]="myTodo"></app-todo-template>
+    </app-loading>
   </div>
   <mat-divider></mat-divider>
   <div class="todo-template__container-button">

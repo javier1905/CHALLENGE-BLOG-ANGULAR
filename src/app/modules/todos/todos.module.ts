@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { TodoDashboardComponent } from './pages/todo-dashboard/todo-dashboard.component';
 import { TodoTemplateComponent } from './components/todo-template/todo-template.component';
 
-import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { SnackBarComponent } from '../../shared/components/snack-bar/snack-bar.component';
 import { FilterListTodoPipe } from 'src/app/shared/pipes/filter-list-todo.pipe';
 import { FiterTodoPipe } from 'src/app/shared/pipes/fiter-todo.pipe';
 import { TodosService } from 'src/app/core/services/todos.service';

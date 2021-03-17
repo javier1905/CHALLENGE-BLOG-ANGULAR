@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Location } from '@angular/common';
@@ -14,15 +14,18 @@ import { CommentService } from 'src/app/core/services/comment.service';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css'],
 })
-export class PostComponent implements OnInit {
+export class PostComponent implements OnInit, OnDestroy {
   myPost: Post;
   listComment: Comment[] = [];
+  subscriptionPost: Subscription | undefined;
+  subscriptionComments: Subscription | undefined;
+  loading: boolean = true;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private postService: PostService,
-    private commentService: CommentService,
-    private _location: Location
+    private commentService: CommentService
   ) {
     this.myPost = new Post();
   }
@@ -31,14 +34,20 @@ export class PostComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
 
     if (id)
-      this.postService.getPostById(id).subscribe({
+      this.subscriptionPost = this.postService.getPostById(id).subscribe({
         next: (post: Post) => {
           this.myPost = post;
-          this.commentService.getCommentsByPostId(this.myPost.id).subscribe({
-            next: (listComment: Comment[]) => {
-              this.listComment = listComment;
-            },
-          });
+          this.subscriptionComments = this.commentService
+            .getCommentsByPostId(this.myPost.id)
+            .subscribe({
+              next: (listComment: Comment[]) => {
+                this.listComment = listComment;
+                this.loading = false;
+              },
+              complete: () => {
+                this.subscriptionComments?.unsubscribe();
+              },
+            });
         },
       });
   }
@@ -48,5 +57,9 @@ export class PostComponent implements OnInit {
   }
   goToUserDetail(): void {
     this.router.navigate(['users/view', this.myPost.userId]);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptionPost?.unsubscribe();
   }
 }

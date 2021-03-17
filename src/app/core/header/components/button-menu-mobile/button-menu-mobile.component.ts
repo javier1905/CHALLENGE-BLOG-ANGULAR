@@ -11,7 +11,11 @@ export class ButtonMenuMobileComponent implements OnInit {
   constructor(private _bottomSheet: MatBottomSheet) {}
 
   openBottomSheet(): void {
-    this._bottomSheet.open(NavBarMobileComponent);
+    this._bottomSheet.open(NavBarMobileComponent, {
+      data: {
+        message: 'Hola mundo',
+      },
+    });
   }
 
   ngOnInit(): void {}

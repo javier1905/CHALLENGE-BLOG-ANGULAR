@@ -5,7 +5,7 @@ import { Todo } from '../../../../shared/models/todo.model';
 import { FiterTodoPipe } from '../../../../shared/pipes/fiter-todo.pipe';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackBarComponent } from '../snack-bar/snack-bar.component';
+import { SnackBarComponent } from '../../../../shared/components/snack-bar/snack-bar.component';
 import { Subscription } from 'rxjs';
 import { TodosService } from 'src/app/core/services/todos.service';
 
@@ -24,7 +24,9 @@ export class TodoTemplateComponent implements OnInit {
   ) {}
 
   openSnackBar() {
-    this._snackBar.openFromComponent(SnackBarComponent, { duration: 2500 });
+    this._snackBar.openFromComponent(SnackBarComponent, {
+      data: 'Todo Actualizado exitosamente',
+    });
   }
 
   handleChange(e: MatCheckboxChange): void {

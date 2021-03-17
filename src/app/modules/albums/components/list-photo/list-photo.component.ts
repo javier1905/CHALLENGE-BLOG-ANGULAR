@@ -10,11 +10,12 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAceptCancelComponent } from '../dialog-acept-cancel/dialog-acept-cancel.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackBarComponent } from '../snack-bar/snack-bar.component';
+
 import { Subscription } from 'rxjs';
 import { Photo } from 'src/app/shared/models/photo.model';
 import { ModalService } from 'src/app/core/services/modal.service';
 import { AlbumService } from 'src/app/core/services/album.service';
+import { SnackBarComponent } from 'src/app/shared/components/snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-list-photo',
@@ -42,7 +43,9 @@ export class ListPhotoComponent implements OnInit, OnDestroy {
   }
 
   openSnackBar() {
-    this._snackBar.openFromComponent(SnackBarComponent, { duration: 2500 });
+    this._snackBar.openFromComponent(SnackBarComponent, {
+      data: 'Photo deleted successfully',
+    });
   }
 
   handleSelectPhoto(selectedPhoto: Photo): void {

@@ -1,6 +1,7 @@
 <div class="album-dasboard__container">
-  <app-album-template [album]="album"></app-album-template>
-
+  <app-loading [loading]="loading">
+    <app-album-template [album]="album"></app-album-template>
+  </app-loading>
   <mat-divider></mat-divider>
   <div class="album-dasboard__button-element">
     <button

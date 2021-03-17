@@ -1,9 +1,9 @@
 <div class="user-dashboard__container">
-  <div class="user-dashboard__content-user-template">
-    <app-loading [loading]="loading">
+  <app-loading [loading]="loading">
+    <div class="user-dashboard__content-user-template">
       <app-user-template [user]="myUser"></app-user-template>
-    </app-loading>
-  </div>
+    </div>
+  </app-loading>
   <mat-divider></mat-divider>
   <div class="user-dashboard__content-button">
     <button mat-fab color="primary" matTooltip="Atras" (click)="goBack()">

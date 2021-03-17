@@ -19,7 +19,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { FilterDeletedPhotosPipe } from '../../shared/pipes/filter-deleted-photos.pipe';
 
 import { DialogAceptCancelComponent } from './components/dialog-acept-cancel/dialog-acept-cancel.component';
-import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+
 import { AlbumService } from 'src/app/core/services/album.service';
 import { UsersService } from 'src/app/core/services/users.service';
 import { ModalService } from 'src/app/core/services/modal.service';
@@ -37,7 +37,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ModalComponent,
     FilterDeletedPhotosPipe,
     DialogAceptCancelComponent,
-    SnackBarComponent,
   ],
   imports: [
     CommonModule,
